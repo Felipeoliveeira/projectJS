@@ -1,9 +1,24 @@
-let titulo = document.querySelector('h1');
-titulo.innerHTML = 'Jogo do Número Secreto';
+let numeroSecreto = contadorNumeroSecreto();
+console.log(numeroSecreto);
 
-let paragrafo = document.querySelector('.texto__paragrafo');
-paragrafo.innerHTML = 'Escolha um número, de 1 a 10:'
+function exibirTextoNaTela(tag,texto) {
+    let campo = document.querySelector(tag);
+    campo.innerHTML = texto;
+}
+
+exibirTextoNaTela('h1','Jogo do Número Secreto');
+exibirTextoNaTela('p', 'Escolha um número, de 1 a 10:');
 
 function verificarChute(){
-    console.log('O botão foi clicado!')
+    let chute = document.querySelector('.container__input').value;
+    // if ( chute == numeroSecreto) {
+    //     exibirTextoNaTela('p', 'Parabéns, você acertou o número secreto, vamos novamente!');
+    // }else{
+    //     exibirTextoNaTela('p', 'Errrrrrou!!!');
+    // }
+    console.log(chute == numeroSecreto);
+}
+
+function contadorNumeroSecreto() {
+    return parseInt(Math.random() * 10 + 1);
 }
