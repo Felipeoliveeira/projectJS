@@ -1,3 +1,5 @@
+let listaDeNumerosSorteados = [];
+let limiteNumeroEscolhido = 10;
 let numeroSecreto = contadorNumeroSecreto();
 let tentativas = 1;
 
@@ -6,6 +8,8 @@ console.log(numeroSecreto);
 function exibirTextoNaTela(tag,texto) {
     let campo = document.querySelector(tag);
     campo.innerHTML = texto;
+    (texto, "Brazilian portuguese female", {rate:1.2});
+    responsiveVoice.speak(texto, 'Brazilian Portuguese Female', {rate:1.2} );
 }
 
 function exibirMensagemIncial() {
@@ -36,7 +40,18 @@ function verificarChute(){
 }
 
 function contadorNumeroSecreto() {
-    return parseInt(Math.random() * 10 + 1);
+    let numeroEscolhido = parseInt(Math.random() * limiteNumeroEscolhido + 1);
+    let quantidadeElementosLista = listaDeNumerosSorteados.length;
+    if (quantidadeElementosLista === limiteNumeroEscolhido){
+        listaDeNumerosSorteados = [];
+    }
+    if (listaDeNumerosSorteados.includes(numeroEscolhido)) {
+        return contadorNumeroSecreto();
+    }else{
+        listaDeNumerosSorteados.push(numeroEscolhido);
+        console.log(listaDeNumerosSorteados);
+        return numeroEscolhido;
+    }
 }
 
 function limpaCampo() {
