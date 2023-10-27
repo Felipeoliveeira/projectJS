@@ -5,10 +5,8 @@ function comprar() {
     let decremento = qtdDisponivel - qtdCadeiras;
     if ( qtdDisponivel > 0 & qtdCadeiras < qtdDisponivel) {
         document.getElementById(`qtd-${tipo}`).innerHTML = decremento;
-        alert('FUNCIONOU DE PRIMA PIVETE!')
     } else {
         alert('Quantidade de ingressos indisponível')
-        alert('FUNCIONOU DE PRIMA PIVETE!')
     }
     console.log(decremento)
 }
