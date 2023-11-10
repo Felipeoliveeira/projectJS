@@ -3,17 +3,22 @@ const focoBt = document.querySelector('.app__card-button--foco');
 const curtoBt = document.querySelector('.app__card-button--curto');
 const longoBt = document.querySelector('.app__card-button--longo');
 const imagem = document.querySelector('.app__image');
-
+const tituloDescanso = document.querySelector('.app__title');
+const subTituloDescanso = document.querySelector('.app__title-strong');
 focoBt.addEventListener('click', () => {
-    html.setAttribute('data-contexto', 'foco');
-    imagem.setAttribute('src', './imagens/foco.png')
+    alterarContexto('foco');
 })
 curtoBt.addEventListener('click', () => {
-    html.setAttribute('data-contexto', 'descanso-curto');
-    imagem.setAttribute('src', './imagens/descanso-curto.png')
+    alterarContexto('descanso-curto');
+    tituloDescanso.innerHTML = 'Que tal dar uma respirada?';
+    subTituloDescanso.textContent = 'Faça uma pausa curta.'
 })
 
 longoBt.addEventListener('click', () => {
-    html.setAttribute('data-contexto', 'descanso-longo')
-    imagem.setAttribute('src', './imagens/descanso-longo.png')
+    alterarContexto('descanso-longo');
 })
+
+function alterarContexto(contexto) {
+    html.setAttribute('data-contexto', contexto);
+    imagem.setAttribute('src', `./imagens/${contexto}.png`)
+}
